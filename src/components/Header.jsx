@@ -8,7 +8,7 @@ const Header = () => {
     }
   };
   return (
-    <header className="navbar bg-base-100">
+    <header className="navbar bg-base-100 mb-5">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost text-xl">
           Fake eCommerce
