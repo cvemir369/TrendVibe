@@ -1,8 +1,18 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
+  const closeMenu = () => {
+    const elem = document.activeElement;
+    if (elem) {
+      elem?.blur();
+    }
+  };
   return (
-    <div className="navbar bg-base-100">
+    <header className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Fake eCommerce</a>
+        <Link to="/" className="btn btn-ghost text-xl">
+          Fake eCommerce
+        </Link>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -33,7 +43,13 @@ const Header = () => {
               <span className="text-lg font-bold">8 Items</span>
               <span className="text-info">Subtotal: $999</span>
               <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
+                <Link
+                  to="/cart"
+                  onClick={closeMenu}
+                  className="btn btn-primary btn-block"
+                >
+                  View cart
+                </Link>
               </div>
             </div>
           </div>
@@ -70,7 +86,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
