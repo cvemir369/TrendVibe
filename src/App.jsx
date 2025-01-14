@@ -11,26 +11,43 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   const [allProducts, setAllProducts] = useState([]);
+  const [allCategories, setAllCategories] = useState([]);
 
   const getAllProducts = async () => {
     try {
       const res = await axios.get(`https://fakestoreapi.com/products`);
-      console.log(res.data);
       setAllProducts(res.data);
     } catch (error) {
       console.error("Error during getAllProducts GET request", error);
     }
   };
 
+  const getAllCategories = async () => {
+    try {
+      const res = await axios.get(
+        `https://fakestoreapi.com/products/categories`
+      );
+      setAllCategories(res.data);
+    } catch (error) {
+      console.error("Error during getAllCategories GET request", error);
+    }
+  };
+
   useEffect(() => {
     getAllProducts();
+    getAllCategories();
   }, []);
 
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home allProducts={allProducts} />} />
+        <Route
+          path="/"
+          element={
+            <Home allProducts={allProducts} allCategories={allCategories} />
+          }
+        />
         <Route path="cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
