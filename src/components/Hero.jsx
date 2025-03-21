@@ -9,7 +9,7 @@ const Hero = () => {
   };
   return (
     <div
-      className="hero min-h-[400px] m-3 rounded-xl shadow-2xl"
+      className="hero min-h-[400px] m-3 rounded-xl shadow-2xl mx-auto"
       style={{
         backgroundImage: `url(${coverImage})`,
         backgroundSize: "cover",
