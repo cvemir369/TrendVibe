@@ -46,8 +46,8 @@ const Footer = () => {
       </nav>
       <aside>
         <p>
-          Copyright © {new Date().getFullYear()} - All right reserved by Fake
-          Sellers
+          Copyright © {new Date().getFullYear()} - All right reserved by
+          TrendVibe
         </p>
       </aside>
     </footer>

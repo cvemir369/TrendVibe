@@ -1,4 +1,10 @@
 const Hero = () => {
+  const handleShopNowClick = () => {
+    const section = document.getElementById("product-list");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="hero bg-base-200 min-h-60 m-3 rounded-xl">
       <div className="hero-content text-center">
@@ -10,7 +16,9 @@ const Hero = () => {
             Discover premium products at unbeatable prices. Free shipping on all
             orders above $50, 30-Day Returns!
           </p>
-          <button className="btn btn-primary">Shop Now</button>
+          <button className="btn btn-primary" onClick={handleShopNowClick}>
+            Shop Now
+          </button>
         </div>
       </div>
     </div>

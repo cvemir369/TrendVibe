@@ -1,7 +1,9 @@
+import titleCase from "../utils/titleCase";
+
 const Category = ({ category }) => {
   return (
     <a role="tab" className="tab">
-      {category}
+      {titleCase(category)}
     </a>
   );
 };

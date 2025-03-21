@@ -6,7 +6,11 @@ const Home = ({ allProducts, allCategories }) => {
   return (
     <main className="m-5">
       <Hero />
-      <div role="tablist" className="tabs grid-cols-5 tabs-boxed">
+      <div
+        role="tablist"
+        className="tabs grid-cols-5 tabs-boxed"
+        id="product-list"
+      >
         <a role="tab" className="tab tab-active">
           All Categories
         </a>
