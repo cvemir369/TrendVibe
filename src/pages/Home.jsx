@@ -4,8 +4,14 @@ import Hero from "../components/Hero";
 import { useProductContext } from "../context/ProductContext";
 
 const Home = () => {
-  const { allProducts, allCategories, activeCategory, setActiveCategory } =
-    useProductContext();
+  const {
+    allProducts,
+    allCategories,
+    activeCategory,
+    setActiveCategory,
+    loading,
+  } = useProductContext();
+
   return (
     <main className="m-5">
       <Hero />
@@ -25,11 +31,18 @@ const Home = () => {
           <Category key={index} category={category} />
         ))}
       </div>
-      <div className="flex flex-wrap gap-5 justify-center">
-        {allProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {loading && (
+        <div className="flex justify-center my-60">
+          <span className="loading loading-spinner loading-lg text-primary"></span>
+        </div>
+      )}
+      {!loading && (
+        <div className="flex flex-wrap gap-5 justify-center">
+          {allProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
     </main>
   );
 };
