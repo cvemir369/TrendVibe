@@ -16,11 +16,11 @@ const Hero = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="hero-overlay bg-opacity-60 rounded-xl"></div>
+      <div className="hero-overlay bg-opacity-70 rounded-xl"></div>
       <div className="hero-content text-center p-8">
         <div className="max-w-3xl">
           <div className="text-left">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white stroke-black stroke-1 ">
               Shop the Latest Trends in Fashion, Jewelry & Tech!
             </h1>
             <p className="text-lg mb-8 text-white">
@@ -28,7 +28,7 @@ const Hero = () => {
               all orders above $50, 30-Day Returns!
             </p>
             <button
-              className="btn btn-primary btn-lg transform transition-transform duration-300 hover:scale-105"
+              className="btn btn-primary btn-lg text-white text-xl "
               onClick={handleShopNowClick}
             >
               Shop Now
