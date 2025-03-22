@@ -1,15 +1,31 @@
-// Reuse Utilities: The logic to add or remove to and from the cart
-//  is the same regardless of whether it’s happening in the Home page,
-//  the Cart page or anywhere else. Think of how you can abstract this
-//  logic in an utility file in src/utils .
-// Utilities are convenience functions shared by some part of your code 😀
+export const addToCart = (product, setCart) => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const productInCart = cart.find((item) => item.id === product.id);
 
-const addToCart = () => {
-  console.log("item added to cart");
-  return;
+  if (productInCart) {
+    productInCart.quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  setCart([...cart]);
 };
 
-const removeFromCart = () => {
-  console.log("item removed from cart");
-  return;
+export const updateCartItemQuantity = (product, newQuantity, setCart) => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const itemIndex = cart.findIndex((item) => item.id === product.id);
+
+  if (itemIndex !== -1) {
+    if (newQuantity > 0) {
+      cart[itemIndex].quantity = newQuantity;
+    } else {
+      cart.splice(itemIndex, 1);
+    }
+  } else if (newQuantity > 0) {
+    cart.push({ ...product, quantity: newQuantity });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  setCart([...cart]);
 };
