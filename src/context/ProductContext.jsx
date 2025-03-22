@@ -12,6 +12,9 @@ const ProductProvider = ({ children }) => {
   const [allCategories, setAllCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("");
   const [loading, setLoading] = useState(false);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
   const getAllProducts = async () => {
     setLoading(true);
@@ -75,6 +78,8 @@ const ProductProvider = ({ children }) => {
         activeCategory,
         setActiveCategory,
         loading,
+        cart,
+        setCart,
       }}
     >
       {children}
