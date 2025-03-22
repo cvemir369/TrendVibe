@@ -1,6 +1,23 @@
 import { Link } from "react-router-dom";
+import { updateCartItemQuantity } from "../utils/cart";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, setCart }) => {
+  const handleQuantityChange = (newQuantity) => {
+    if (newQuantity <= 0) {
+      setCart((prevCart) =>
+        prevCart.filter((cartItem) => cartItem.id !== item.id)
+      );
+
+      const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      const filteredCart = updatedCart.filter(
+        (cartItem) => cartItem.id !== item.id
+      );
+      localStorage.setItem("cart", JSON.stringify(filteredCart));
+    } else {
+      updateCartItemQuantity(item, newQuantity, setCart);
+    }
+  };
+
   return (
     <>
       <tr className="border-b border-gray-200">
@@ -40,9 +57,19 @@ const CartItem = ({ item }) => {
         <td className="px-4 min-w-28 text-sm md:text-base">{item.price} €</td>
         <td className="p-2 min-w-36">
           <div className="flex items-center">
-            <button className="btn btn-xs md:btn-sm">-</button>
+            <button
+              className="btn btn-xs md:btn-sm"
+              onClick={() => handleQuantityChange(item.quantity - 1)}
+            >
+              -
+            </button>
             <span className="mx-2 text-sm md:text-base">{item.quantity}</span>
-            <button className="btn btn-xs md:btn-sm">+</button>
+            <button
+              className="btn btn-xs md:btn-sm"
+              onClick={() => handleQuantityChange(item.quantity + 1)}
+            >
+              +
+            </button>
           </div>
         </td>
         <th className="px-4 min-w-28 text-sm md:text-base">

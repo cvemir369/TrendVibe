@@ -2,7 +2,7 @@ import { useProductContext } from "../context/ProductContext";
 import CartItem from "../components/CartItem";
 
 const Cart = () => {
-  const { cart, cartCount, cartTotal } = useProductContext();
+  const { cart, setCart, cartCount, cartTotal } = useProductContext();
 
   return (
     <div className="container mx-auto p-5">
@@ -26,7 +26,7 @@ const Cart = () => {
           </thead>
           <tbody>
             {cart.map((item) => (
-              <CartItem key={item.id} item={item} />
+              <CartItem key={item.id} item={item} setCart={setCart} />
             ))}
           </tbody>
           {/* foot */}
@@ -41,12 +41,12 @@ const Cart = () => {
             </tr>
           </tfoot>
         </table>
-        <div className="flex flex-col justify-end items-end gap-4 mt-8">
+        <div className="flex flex-col justify-end items-end gap-3 mt-8">
           <div className="badge badge-ghost badge-sm p-3">
             Items in Cart: {cartCount}
           </div>
           <div className="font-bold text-xl">Total Price: {cartTotal} €</div>
-          <button className="btn btn-primary">Order Now</button>
+          <button className="btn btn-primary text-lg px-12">Order Now</button>
         </div>
       </div>
     </div>
