@@ -45,7 +45,7 @@ const Cart = () => {
           <div className="badge badge-ghost badge-sm p-3">
             Items in Cart: {cartCount}
           </div>
-          <div className="font-bold">Total Price: {cartTotal} €</div>
+          <div className="font-bold text-xl">Total Price: {cartTotal} €</div>
           <button className="btn btn-primary">Order Now</button>
         </div>
       </div>

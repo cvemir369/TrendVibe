@@ -22,11 +22,13 @@ const CartItem = ({ item }) => {
             <div>
               <Link
                 to={`/products/${item.id}`}
-                className="font-bold text-sm md:text-base block mb-1"
+                className="font-bold text-xs md:text-base block mb-1"
               >
                 {item.title}
               </Link>
-              <div className="badge badge-ghost badge-sm">{item.category}</div>
+              <div className="badge badge-ghost badge-sm text-xs md:text-xs">
+                {item.category}
+              </div>
             </div>
           </div>
         </td>
