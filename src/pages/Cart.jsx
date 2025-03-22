@@ -12,11 +12,6 @@ const Cart = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
               <th>Item</th>
               <th>Description</th>
               <th>Price</th>
@@ -32,7 +27,6 @@ const Cart = () => {
           {/* foot */}
           <tfoot>
             <tr>
-              <th></th>
               <th>Item</th>
               <th>Description</th>
               <th>Price</th>

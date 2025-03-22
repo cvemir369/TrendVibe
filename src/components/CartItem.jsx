@@ -21,11 +21,6 @@ const CartItem = ({ item, setCart }) => {
   return (
     <>
       <tr className="border-b border-gray-200">
-        <th className="p-4">
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
         <td className="p-2">
           <div className="flex items-center gap-3">
             <div className="avatar">
@@ -73,7 +68,7 @@ const CartItem = ({ item, setCart }) => {
           </div>
         </td>
         <th className="px-4 min-w-28 text-sm md:text-base">
-          {item.price * item.quantity} €
+          {(item.price * item.quantity).toFixed(2)} €
         </th>
       </tr>
     </>
