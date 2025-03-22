@@ -18,15 +18,12 @@ const ProductCard = ({ product }) => {
 
   const handleQuantityChange = (newQuantity) => {
     if (newQuantity <= 0) {
-      // Remove the item from the cart if the quantity is 0 or less
       setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
 
-      // Remove the item from localStorage
       const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
       const filteredCart = updatedCart.filter((item) => item.id !== product.id);
       localStorage.setItem("cart", JSON.stringify(filteredCart));
     } else {
-      // Update the quantity in the cart
       updateCartItemQuantity(product, newQuantity, setCart);
     }
   };
