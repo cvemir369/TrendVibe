@@ -1,5 +1,6 @@
 import titleCase from "../utils/titleCase";
 import { useProductContext } from "../context/ProductContext";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { activeCategory, setActiveCategory } = useProductContext();
@@ -20,7 +21,9 @@ const ProductCard = ({ product }) => {
         />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{product.title}</h2>
+        <h2 className="card-title hover:underline">
+          <Link to={`products/${product.id}`}>{product.title}</Link>
+        </h2>
         <p className="font-semibold text-2xl mt-2">${product.price}</p>
         <div className="card-actions">
           <button className="btn btn-primary">Add to cart</button>
