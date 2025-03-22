@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useProductContext } from "../context/ProductContext";
 
 const Header = () => {
-  const { cart, cartCount, cartTotal } = useProductContext();
+  const { cartCount, cartTotal } = useProductContext();
   const closeMenu = () => {
     const elem = document.activeElement;
     if (elem) {
@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="navbar bg-base-100 mb-5 px-20">
+    <header className="navbar bg-base-100">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost text-2xl">
           🛍️ TrendVibe
