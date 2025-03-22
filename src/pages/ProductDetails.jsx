@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const ProductDetails = () => {
@@ -60,15 +60,19 @@ const ProductDetails = () => {
             />
           </div>
           <div>
+            <Link to="/" className="link-hover text-sm block my-2">
+              ← Back to Home
+            </Link>
             <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
             <div className="rating rating-md">
               {renderStars()}
               <div className="ml-2">
-                {product.rating ? product.rating.rate : "N/A"}
+                {product.rating ? product.rating.rate : "N/A"}{" "}
+                {product.rating ? `(${product.rating.count})` : ""}
               </div>
             </div>
             <p className="mb-4">{product.description}</p>
-            <p className="font-semibold text-2xl my-2">${product.price}</p>
+            <p className="font-semibold text-3xl my-2">{product.price} €</p>
             <button className="btn btn-primary">Add to Cart</button>
           </div>
         </div>

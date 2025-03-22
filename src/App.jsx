@@ -13,14 +13,18 @@ function App() {
   return (
     <ProductProvider>
       <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="products/:id" element={<ProductDetails />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
+        <div className="min-h-screen flex flex-col">
+          <main className="max-w-screen-xl mx-auto flex-grow">
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="products/:id" element={<ProductDetails />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </Router>
     </ProductProvider>
   );
