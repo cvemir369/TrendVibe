@@ -14,8 +14,8 @@ function App() {
     <ProductProvider>
       <Router>
         <div className="min-h-screen flex flex-col">
+          <Header />
           <main className="max-w-screen-xl mx-auto flex-grow">
-            <Header />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="products/:id" element={<ProductDetails />} />
