@@ -7,7 +7,9 @@ const QuantityControls = ({ quantity, onDecrease, onIncrease }) => (
     >
       -
     </button>
-    <span>{quantity} in cart</span>
+    <span class="btn text-sm font-medium px-3 py-1 shadow-sm">
+      {quantity} in cart
+    </span>
     <button
       className="btn btn-primary"
       onClick={onIncrease}

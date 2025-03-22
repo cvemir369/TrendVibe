@@ -17,7 +17,18 @@ const ProductCard = ({ product }) => {
   };
 
   const handleQuantityChange = (newQuantity) => {
-    updateCartItemQuantity(product, newQuantity, setCart);
+    if (newQuantity <= 0) {
+      // Remove the item from the cart if the quantity is 0 or less
+      setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
+
+      // Remove the item from localStorage
+      const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      const filteredCart = updatedCart.filter((item) => item.id !== product.id);
+      localStorage.setItem("cart", JSON.stringify(filteredCart));
+    } else {
+      // Update the quantity in the cart
+      updateCartItemQuantity(product, newQuantity, setCart);
+    }
   };
 
   const cartItem = cart.find((item) => item.id === product.id);
@@ -45,7 +56,7 @@ const ProductCard = ({ product }) => {
               <QuantityControls
                 quantity={cartItem.quantity}
                 onDecrease={() =>
-                  handleQuantityChange(Math.max(1, cartItem.quantity - 1))
+                  handleQuantityChange(Math.max(0, cartItem.quantity - 1))
                 }
                 onIncrease={() => handleQuantityChange(cartItem.quantity + 1)}
               />
