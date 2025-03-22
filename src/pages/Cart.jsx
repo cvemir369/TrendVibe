@@ -41,7 +41,7 @@ const Cart = () => {
             </tr>
           </tfoot>
         </table>
-        <div className="flex flex-col justify-end items-end gap-2 mt-5">
+        <div className="flex flex-col justify-end items-end gap-4 mt-8">
           <div className="badge badge-ghost badge-sm p-3">
             Items in Cart: {cartCount}
           </div>

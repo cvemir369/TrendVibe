@@ -2,19 +2,13 @@ import { Link } from "react-router-dom";
 import { useProductContext } from "../context/ProductContext";
 
 const Header = () => {
+  const { cart, cartCount, cartTotal } = useProductContext();
   const closeMenu = () => {
     const elem = document.activeElement;
     if (elem) {
       elem?.blur();
     }
   };
-
-  const { cart, cartCount, cartTotal } = useProductContext();
-  // const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-  // const cartTotal = cart.reduce(
-  //   (acc, item) => acc + item.price * item.quantity,
-  //   0
-  // );
 
   return (
     <header className="navbar bg-base-100 mb-5 px-20">
