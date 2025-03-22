@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const QuantityControls = ({ quantity, onDecrease, onIncrease }) => (
   <div className="flex items-center gap-2">
     <button
@@ -7,9 +9,12 @@ const QuantityControls = ({ quantity, onDecrease, onIncrease }) => (
     >
       -
     </button>
-    <span className="btn text-sm font-medium px-3 py-1 shadow-sm">
+    <Link
+      to="/cart"
+      className="btn btn-primary text-sm font-medium px-3 py-1 shadow-sm"
+    >
       {quantity} in cart
-    </span>
+    </Link>
     <button
       className="btn btn-primary"
       onClick={onIncrease}

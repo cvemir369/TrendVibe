@@ -57,6 +57,11 @@ const ProductProvider = ({ children }) => {
     }
   };
 
+  const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const cartTotal = cart
+    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+    .toFixed(2);
+
   useEffect(() => {
     getAllProducts();
     getAllCategories();
@@ -80,6 +85,8 @@ const ProductProvider = ({ children }) => {
         loading,
         cart,
         setCart,
+        cartCount,
+        cartTotal,
       }}
     >
       {children}
