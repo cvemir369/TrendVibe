@@ -1,6 +1,7 @@
 import ProductCard from "../components/ProductCard";
 import Category from "../components/Category";
 import Hero from "../components/Hero";
+import LoadingSkeleton from "../components/LoadingSkeleton";
 import { useProductContext } from "../context/ProductContext";
 
 const Home = () => {
@@ -31,11 +32,7 @@ const Home = () => {
           <Category key={index} category={category} />
         ))}
       </div>
-      {loading && (
-        <div className="flex justify-center my-60">
-          <span className="loading loading-spinner loading-lg text-primary"></span>
-        </div>
-      )}
+      {loading && <LoadingSkeleton />}
       {!loading && (
         <div className="flex flex-wrap gap-5 justify-center">
           {allProducts.map((product) => (
