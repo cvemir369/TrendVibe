@@ -1,8 +1,22 @@
 import { useProductContext } from "../context/ProductContext";
 import CartItem from "../components/CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart, setCart, cartCount, cartTotal } = useProductContext();
+
+  if (cartCount === 0) {
+    return (
+      <div className="container mx-auto p-5">
+        <div className="flex flex-col gap-5 justify-center items-center h-96">
+          <h1 className="text-2xl font-bold">Your cart is empty</h1>
+          <Link to={"/"} className="btn btn-primary text-lg px-12">
+            Shop Now
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto p-5">
