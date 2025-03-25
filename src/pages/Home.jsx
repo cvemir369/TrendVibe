@@ -14,11 +14,11 @@ const Home = () => {
   } = useProductContext();
 
   return (
-    <main className="m-5">
+    <div className="container mx-auto">
       <Hero />
       <div
         role="tablist"
-        className="tabs grid-cols-5 tabs-boxed"
+        className="tabs grid-cols-5 tabs-boxed sm:text-xs md:text-sm lg:text-base"
         id="product-list"
       >
         <a
@@ -40,7 +40,7 @@ const Home = () => {
           ))}
         </div>
       )}
-    </main>
+    </div>
   );
 };
 
