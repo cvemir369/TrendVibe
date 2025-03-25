@@ -18,12 +18,14 @@ const Home = () => {
       <Hero />
       <div
         role="tablist"
-        className="tabs grid-cols-5 tabs-boxed sm:text-xs md:text-sm lg:text-base"
+        className="tabs grid-cols-5 tabs-boxed"
         id="product-list"
       >
         <a
           role="tab"
-          className={`tab ${activeCategory === "" ? "tab-active" : ""}`}
+          className={`tab text-xs md:text-sm ${
+            activeCategory === "" ? "tab-active" : ""
+          }`}
           onClick={() => setActiveCategory("")}
         >
           All Categories
@@ -34,7 +36,7 @@ const Home = () => {
       </div>
       {loading && <LoadingSkeleton />}
       {!loading && (
-        <div className="flex flex-wrap gap-5 justify-center">
+        <div className="flex flex-wrap gap-5 justify-center my-5">
           {allProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

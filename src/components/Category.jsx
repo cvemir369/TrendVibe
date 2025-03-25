@@ -10,7 +10,9 @@ const Category = ({ category }) => {
   return (
     <a
       role="tab"
-      className={`tab ${activeCategory === category ? "tab-active" : ""}`}
+      className={`tab text-xs md:text-sm ${
+        activeCategory === category ? "tab-active" : ""
+      }`}
       onClick={handleClick}
     >
       {titleCase(category)}
