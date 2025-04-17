@@ -24,7 +24,7 @@ const Cart = () => {
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="hidden md:table-header-group">
             <tr>
               <th>Item</th>
               <th>Description</th>
@@ -39,7 +39,7 @@ const Cart = () => {
             ))}
           </tbody>
           {/* foot */}
-          <tfoot>
+          <tfoot className="hidden md:table-header-group">
             <tr>
               <th>Item</th>
               <th>Description</th>
