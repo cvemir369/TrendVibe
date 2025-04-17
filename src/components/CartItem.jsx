@@ -49,7 +49,10 @@ const CartItem = ({ item, setCart }) => {
             ? `${item.description.slice(0, 200)}...`
             : item.description}
         </td>
-        <td className="px-4 min-w-28 text-sm md:text-base">{item.price} €</td>
+        <td className="px-4 min-w-28 text-sm md:text-base">
+          <span className="md:hidden">Price: </span>
+          {item.price} €
+        </td>
         <td className="p-2 min-w-36">
           <div className="flex items-center">
             <button
@@ -68,8 +71,17 @@ const CartItem = ({ item, setCart }) => {
           </div>
         </td>
         <th className="px-4 min-w-28 text-sm md:text-base">
+          <span className="md:hidden">Total price: </span>
           {(item.price * item.quantity).toFixed(2)} €
         </th>
+        <td>
+          <button
+            onClick={() => handleQuantityChange(0)}
+            className="btn btn-secondary btn-sm md:btn-md"
+          >
+            Remove
+          </button>
+        </td>
       </tr>
     </>
   );
