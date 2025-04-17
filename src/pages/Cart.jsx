@@ -22,8 +22,7 @@ const Cart = () => {
     <div className="container mx-auto p-5">
       <h1 className="text-2xl font-bold my-3">Cart</h1>
       <div className="overflow-x-auto">
-        {/* Show table on medium screens and up */}
-        <table className="table hidden md:table">
+        <table className="table">
           {/* head */}
           <thead>
             <tr>
@@ -50,75 +49,6 @@ const Cart = () => {
             </tr>
           </tfoot>
         </table>
-
-        {/* Mobile view - show simplified list on small screens */}
-        <div className="md:hidden space-y-4">
-          {cart.map((item) => (
-            <div key={item.id} className="card bg-base-100 shadow-md p-4">
-              <div className="flex flex-col gap-2">
-                <Link to={`/products/${item.id}`} className="font-bold">
-                  {item.title}
-                </Link>
-                <div className="text-sm text-gray-500 line-clamp-2">
-                  {item.description}
-                </div>
-                <div className="flex justify-between items-center mt-2">
-                  <span className="font-semibold">Price: {item.price} €</span>
-                  <span className="font-semibold">Qty: {item.quantity}</span>
-                </div>
-                <div className="flex justify-between items-center border-t pt-2">
-                  <span className="font-bold">
-                    Total: {(item.price * item.quantity).toFixed(2)} €
-                  </span>
-                  <div className="flex gap-2">
-                    <button
-                      className="btn btn-sm btn-outline"
-                      onClick={() =>
-                        setCart(
-                          cart.map((cartItem) =>
-                            cartItem.id === item.id
-                              ? {
-                                  ...cartItem,
-                                  quantity: Math.max(1, cartItem.quantity - 1),
-                                }
-                              : cartItem
-                          )
-                        )
-                      }
-                    >
-                      -
-                    </button>
-                    <button
-                      className="btn btn-sm btn-outline"
-                      onClick={() =>
-                        setCart(
-                          cart.map((cartItem) =>
-                            cartItem.id === item.id
-                              ? { ...cartItem, quantity: cartItem.quantity + 1 }
-                              : cartItem
-                          )
-                        )
-                      }
-                    >
-                      +
-                    </button>
-                    <button
-                      className="btn btn-sm btn-error"
-                      onClick={() =>
-                        setCart(
-                          cart.filter((cartItem) => cartItem.id !== item.id)
-                        )
-                      }
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="flex flex-col justify-end items-end gap-3 mt-8">
           <div className="badge badge-ghost badge-sm p-3">
             Items in Cart: {cartCount}
