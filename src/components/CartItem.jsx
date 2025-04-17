@@ -20,7 +20,7 @@ const CartItem = ({ item, setCart }) => {
 
   return (
     <>
-      <tr className="border-b border-gray-200">
+      <tr className="border-b border-gray-200 flex flex-col md:flex-row md:table-row">
         <td className="p-2">
           <div className="flex items-center gap-3">
             <div className="avatar">
